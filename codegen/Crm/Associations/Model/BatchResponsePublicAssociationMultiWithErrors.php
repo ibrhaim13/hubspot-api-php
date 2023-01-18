@@ -1,6 +1,6 @@
 <?php
 /**
- * BatchResponsePublicAssociationMulti
+ * BatchResponsePublicAssociationMultiWithErrors
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \HubSpot\Client\Crm\Associations\ObjectSerializer;
 
 /**
- * BatchResponsePublicAssociationMulti Class Doc Comment
+ * BatchResponsePublicAssociationMultiWithErrors Class Doc Comment
  *
  * @category Class
  * @package  HubSpot\Client\Crm\Associations
@@ -40,7 +40,7 @@ use \HubSpot\Client\Crm\Associations\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess, \JsonSerializable
+class BatchResponsePublicAssociationMultiWithErrors implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BatchResponsePublicAssociationMulti';
+    protected static $openAPIModelName = 'BatchResponsePublicAssociationMultiWithErrors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,6 +59,8 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'status' => 'string',
         'results' => '\HubSpot\Client\Crm\Associations\Model\PublicAssociationMulti[]',
+        'num_errors' => 'int',
+        'errors' => '\HubSpot\Client\Crm\Associations\Model\StandardError[]',
         'requested_at' => '\DateTime',
         'started_at' => '\DateTime',
         'completed_at' => '\DateTime',
@@ -75,6 +77,8 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'status' => null,
         'results' => null,
+        'num_errors' => 'int32',
+        'errors' => null,
         'requested_at' => 'date-time',
         'started_at' => 'date-time',
         'completed_at' => 'date-time',
@@ -110,6 +114,8 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'status' => 'status',
         'results' => 'results',
+        'num_errors' => 'numErrors',
+        'errors' => 'errors',
         'requested_at' => 'requestedAt',
         'started_at' => 'startedAt',
         'completed_at' => 'completedAt',
@@ -124,6 +130,8 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
     protected static $setters = [
         'status' => 'setStatus',
         'results' => 'setResults',
+        'num_errors' => 'setNumErrors',
+        'errors' => 'setErrors',
         'requested_at' => 'setRequestedAt',
         'started_at' => 'setStartedAt',
         'completed_at' => 'setCompletedAt',
@@ -138,6 +146,8 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
     protected static $getters = [
         'status' => 'getStatus',
         'results' => 'getResults',
+        'num_errors' => 'getNumErrors',
+        'errors' => 'getErrors',
         'requested_at' => 'getRequestedAt',
         'started_at' => 'getStartedAt',
         'completed_at' => 'getCompletedAt',
@@ -222,6 +232,8 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
     {
         $this->container['status'] = $data['status'] ?? null;
         $this->container['results'] = $data['results'] ?? null;
+        $this->container['num_errors'] = $data['num_errors'] ?? null;
+        $this->container['errors'] = $data['errors'] ?? null;
         $this->container['requested_at'] = $data['requested_at'] ?? null;
         $this->container['started_at'] = $data['started_at'] ?? null;
         $this->container['completed_at'] = $data['completed_at'] ?? null;
@@ -327,6 +339,54 @@ class BatchResponsePublicAssociationMulti implements ModelInterface, ArrayAccess
     public function setResults($results)
     {
         $this->container['results'] = $results;
+
+        return $this;
+    }
+
+    /**
+     * Gets num_errors
+     *
+     * @return int|null
+     */
+    public function getNumErrors()
+    {
+        return $this->container['num_errors'];
+    }
+
+    /**
+     * Sets num_errors
+     *
+     * @param int|null $num_errors num_errors
+     *
+     * @return self
+     */
+    public function setNumErrors($num_errors)
+    {
+        $this->container['num_errors'] = $num_errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors
+     *
+     * @return \HubSpot\Client\Crm\Associations\Model\StandardError[]|null
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param \HubSpot\Client\Crm\Associations\Model\StandardError[]|null $errors errors
+     *
+     * @return self
+     */
+    public function setErrors($errors)
+    {
+        $this->container['errors'] = $errors;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Paging
+ * CollectionResponsePublicAssociationDefinitionNoPaging
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \HubSpot\Client\Crm\Associations\ObjectSerializer;
 
 /**
- * Paging Class Doc Comment
+ * CollectionResponsePublicAssociationDefinitionNoPaging Class Doc Comment
  *
  * @category Class
  * @package  HubSpot\Client\Crm\Associations
@@ -40,7 +40,7 @@ use \HubSpot\Client\Crm\Associations\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
+class CollectionResponsePublicAssociationDefinitionNoPaging implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Paging';
+    protected static $openAPIModelName = 'CollectionResponsePublicAssociationDefinitionNoPaging';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'next' => '\HubSpot\Client\Crm\Associations\Model\NextPage',
-        'prev' => '\HubSpot\Client\Crm\Associations\Model\PreviousPage'
+        'results' => '\HubSpot\Client\Crm\Associations\Model\PublicAssociationDefinition[]'
     ];
 
     /**
@@ -69,8 +68,7 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'next' => null,
-        'prev' => null
+        'results' => null
     ];
 
     /**
@@ -100,8 +98,7 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'next' => 'next',
-        'prev' => 'prev'
+        'results' => 'results'
     ];
 
     /**
@@ -110,8 +107,7 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'next' => 'setNext',
-        'prev' => 'setPrev'
+        'results' => 'setResults'
     ];
 
     /**
@@ -120,8 +116,7 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'next' => 'getNext',
-        'prev' => 'getPrev'
+        'results' => 'getResults'
     ];
 
     /**
@@ -181,8 +176,7 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['next'] = $data['next'] ?? null;
-        $this->container['prev'] = $data['prev'] ?? null;
+        $this->container['results'] = $data['results'] ?? null;
     }
 
     /**
@@ -194,6 +188,9 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['results'] === null) {
+            $invalidProperties[] = "'results' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -210,49 +207,25 @@ class Paging implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets next
+     * Gets results
      *
-     * @return \HubSpot\Client\Crm\Associations\Model\NextPage|null
+     * @return \HubSpot\Client\Crm\Associations\Model\PublicAssociationDefinition[]
      */
-    public function getNext()
+    public function getResults()
     {
-        return $this->container['next'];
+        return $this->container['results'];
     }
 
     /**
-     * Sets next
+     * Sets results
      *
-     * @param \HubSpot\Client\Crm\Associations\Model\NextPage|null $next next
+     * @param \HubSpot\Client\Crm\Associations\Model\PublicAssociationDefinition[] $results results
      *
      * @return self
      */
-    public function setNext($next)
+    public function setResults($results)
     {
-        $this->container['next'] = $next;
-
-        return $this;
-    }
-
-    /**
-     * Gets prev
-     *
-     * @return \HubSpot\Client\Crm\Associations\Model\PreviousPage|null
-     */
-    public function getPrev()
-    {
-        return $this->container['prev'];
-    }
-
-    /**
-     * Sets prev
-     *
-     * @param \HubSpot\Client\Crm\Associations\Model\PreviousPage|null $prev prev
-     *
-     * @return self
-     */
-    public function setPrev($prev)
-    {
-        $this->container['prev'] = $prev;
+        $this->container['results'] = $results;
 
         return $this;
     }
